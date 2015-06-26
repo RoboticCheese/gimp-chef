@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: gimp
-# Recipe:: default
+# Library:: matchers
 #
 # Copyright 2015 Jonathan Hartman
 #
@@ -18,7 +18,12 @@
 # limitations under the License.
 #
 
-gimp_app 'default' do
-  version node['gimp']['version']
-  action :install
+if defined?(ChefSpec)
+  ChefSpec.define_matcher(:gimp_app)
+
+  [:install, :remove].each do |a|
+    define_method("#{a}_gimp_app") do |name|
+      ChefSpec::Matchers::ResourceMatcher.new(:gimp_app, a, name)
+    end
+  end
 end

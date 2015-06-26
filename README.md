@@ -10,65 +10,74 @@ Gimp Cookbook
 [codeclimate]: https://codeclimate.com/github/RoboticCheese/gimp-chef
 [coveralls]: https://coveralls.io/r/RoboticCheese/gimp-chef
 
-TODO: Enter the cookbook description here.
+A Chef cookbook for installing GIMP.
 
 Requirements
 ============
 
-TODO: Describe cookbook dependencies.
+This cookbook currently supports OS X only. Additional platform support is
+coming.
 
 Usage
 =====
 
-TODO: Describe how to use the cookbook.
+Either add the default recipe to your run_list or implement the resource
+directly in a recipe of your own.
 
 Recipes
 =======
 
 ***default***
 
-TODO: Describe each component recipe.
+Installs GIMP.
 
 Attributes
 ==========
 
 ***default***
 
-TODO: Describe any noteworthy attributes.
+A specific version of GIMP can be installed if you so desire:
+
+    default['gimp']['version'] = nil
 
 Resources
 =========
 
-***gimp***
+***gimp_app***
 
-TODO: Describe each included resource.
+Used to install the GIMP app.
 
 Syntax:
 
-    gimp 'my_resource' do
-        attribute1 'value1'
-        action :create
+    gimp_app 'default' do
+        version '1.2.3'
+        action :install
     end
 
 Actions:
 
-| Action  | Description  |
-|---------|--------------|
-| action1 | Do something |
+| Action     | Description       |
+|------------|-------------------|
+| `:install` | Install the app   |
+| `:remove`  | Uninstall the app |
 
 Attributes:
 
-| Attribute  | Default        | Description          |
-|------------|----------------|----------------------|
-| attribute1 | `'some_value'` | Do something         |
-| action     | `:create`      | Action(s) to perform |
+| Attribute | Default   | Description                   |
+|-----------|-----------|-------------------------------|
+| version   | `nil`     | A specific version to install |
+| action    | `:create` | Action(s) to perform          |
 
 Providers
 =========
 
-TODO: Describe each included provider
+***Chef::Provider::GimpApp::MacOsX***
 
-***Chef::Provider::SomeProvider***
+Provider for Mac OS X platforms.
+
+***Chef::Provider::GimpApp***
+
+A parent provider for all the platform-specific providers to subclass.
 
 Contributing
 ============

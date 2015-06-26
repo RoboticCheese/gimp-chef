@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: gimp
-# Recipe:: default
+# Library:: provider_mapping
 #
 # Copyright 2015 Jonathan Hartman
 #
@@ -18,7 +18,10 @@
 # limitations under the License.
 #
 
-gimp_app 'default' do
-  version node['gimp']['version']
-  action :install
-end
+require 'chef/dsl'
+require 'chef/platform/provider_mapping'
+require_relative 'provider_gimp_app'
+
+Chef::Platform.set(platform: :mac_os_x,
+                   resource: :gimp_app,
+                   provider: Chef::Provider::GimpApp::MacOsX)
