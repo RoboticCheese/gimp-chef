@@ -21,6 +21,7 @@
 require 'chef/provider/lwrp_base'
 require_relative 'resource_gimp_app'
 require_relative 'provider_gimp_app_mac_os_x'
+require_relative 'provider_gimp_app_windows'
 
 class Chef
   class Provider
