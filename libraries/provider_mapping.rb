@@ -25,3 +25,6 @@ require_relative 'provider_gimp_app'
 Chef::Platform.set(platform: :mac_os_x,
                    resource: :gimp_app,
                    provider: Chef::Provider::GimpApp::MacOsX)
+Chef::Platform.set(platform: :windows,
+                   resource: :gimp_app,
+                   provider: Chef::Provider::GimpApp::Windows)

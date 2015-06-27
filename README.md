@@ -15,8 +15,8 @@ A Chef cookbook for installing GIMP.
 Requirements
 ============
 
-This cookbook currently supports OS X only. Additional platform support is
-coming.
+This cookbook currently supports OS X and Windows only. Additional platform
+support is coming.
 
 Usage
 =====
@@ -74,6 +74,10 @@ Providers
 ***Chef::Provider::GimpApp::MacOsX***
 
 Provider for Mac OS X platforms.
+
+***Chef::Provider::GimpApp::Windows***
+
+Provider for Windows platforms.
 
 ***Chef::Provider::GimpApp***
 

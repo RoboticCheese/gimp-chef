@@ -8,4 +8,10 @@ describe 'gimp::default' do
       expect(subject).not_to be_directory
     end
   end
+
+  describe file('/Program Files/GIMP 2'), if: os[:family] == 'windows' do
+    it 'does not exist' do
+      expect(subject).not_to be_directory
+    end
+  end
 end
