@@ -14,4 +14,10 @@ describe 'gimp::default' do
       expect(subject).to be_directory
     end
   end
+
+  describe package('gimp'), if: !%w(darwin windows).include?(os[:family]) do
+    it 'is installed' do
+      expect(subject).to be_installed
+    end
+  end
 end

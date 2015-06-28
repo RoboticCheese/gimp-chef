@@ -28,3 +28,20 @@ Chef::Platform.set(platform: :mac_os_x,
 Chef::Platform.set(platform: :windows,
                    resource: :gimp_app,
                    provider: Chef::Provider::GimpApp::Windows)
+Chef::Platform.set(platform: :ubuntu,
+                   resource: :gimp_app,
+                   provider: Chef::Provider::GimpApp::Debian)
+Chef::Platform.set(platform: :debian,
+                   resource: :gimp_app,
+                   provider: Chef::Provider::GimpApp::Debian)
+Chef::Platform.set(platform: :freebsd,
+                   resource: :gimp_app,
+                   provider: Chef::Provider::GimpApp::Freebsd)
+[:redhat, :centos, :scientific, :amazon, :fedora].each do |platform|
+  Chef::Platform.set(platform: platform,
+                     resource: :gimp_app,
+                     provider: Chef::Provider::GimpApp::Rhel)
+end
+Chef::Platform.set(platform: :opensuse,
+                   resource: :gimp_app,
+                   provider: Chef::Provider::GimpApp::Opensuse)

@@ -13,4 +13,13 @@ depends          'gimp'
 
 supports         'mac_os_x'
 supports         'windows'
+supports         'ubuntu'
+supports         'debian'
+supports         'freebsd'
+supports         'redhat'
+supports         'centos'
+supports         'scientific'
+supports         'amazon'
+supports         'fedora'
+supports         'opensuse'
 # rubocop:enable SingleSpaceBeforeFirstArg
