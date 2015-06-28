@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: gimp
-# Library:: provider_mapping
+# Library:: provider_gimp_app_debian
 #
 # Copyright 2015 Jonathan Hartman
 #
@@ -18,19 +18,32 @@
 # limitations under the License.
 #
 
-require 'chef/dsl'
-require 'chef/platform/provider_mapping'
+require 'chef/provider/lwrp_base'
+require 'chef/dsl/include_recipe'
 require_relative 'provider_gimp_app'
+require_relative 'provider_gimp_app_package'
 
-Chef::Platform.set(platform: :mac_os_x,
-                   resource: :gimp_app,
-                   provider: Chef::Provider::GimpApp::MacOsX)
-Chef::Platform.set(platform: :windows,
-                   resource: :gimp_app,
-                   provider: Chef::Provider::GimpApp::Windows)
-Chef::Platform.set(platform: :ubuntu,
-                   resource: :gimp_app,
-                   provider: Chef::Provider::GimpApp::Debian)
-Chef::Platform.set(platform: :debian,
-                   resource: :gimp_app,
-                   provider: Chef::Provider::GimpApp::Debian)
+class Chef
+  class Provider
+    class GimpApp < Provider::LWRPBase
+      # A GIMP provider for Ubuntu/Debian.
+      #
+      # @author Jonathan Hartman <j@p4nt5.com>
+      class Debian < GimpApp::Package
+        include Chef::DSL::IncludeRecipe
+
+        private
+
+        #
+        # Update APT's cache before trying to install the GIMP package.
+        #
+        # (see GimpApp::Package#install!)
+        #
+        def install!
+          include_recipe 'apt'
+          super
+        end
+      end
+    end
+  end
+end

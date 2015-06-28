@@ -21,7 +21,7 @@ describe 'gimp::provider_mapping' do
   context 'Windows' do
     let(:platform) { :windows }
 
-    it 'Uses the Windows app provider' do
+    it 'uses the Windows app provider' do
       expect(app_provider).to eq(Chef::Provider::GimpApp::Windows)
     end
   end
@@ -29,8 +29,16 @@ describe 'gimp::provider_mapping' do
   context 'Ubuntu' do
     let(:platform) { :ubuntu }
 
-    it 'has no provider' do
-      expect(app_provider).to eq(nil)
+    it 'uses the Debian app provider' do
+      expect(app_provider).to eq(Chef::Provider::GimpApp::Debian)
+    end
+  end
+
+  context 'Debian' do
+    let(:platform) { :debian }
+
+    it 'uses the Debian app provider' do
+      expect(app_provider).to eq(Chef::Provider::GimpApp::Debian)
     end
   end
 end
