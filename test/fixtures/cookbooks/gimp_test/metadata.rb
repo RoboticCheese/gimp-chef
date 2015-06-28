@@ -15,4 +15,5 @@ supports         'mac_os_x'
 supports         'windows'
 supports         'ubuntu'
 supports         'debian'
+supports         'freebsd'
 # rubocop:enable SingleSpaceBeforeFirstArg

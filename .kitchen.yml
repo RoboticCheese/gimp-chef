@@ -16,6 +16,10 @@ platforms:
       box: roboticcheese/windows-8
   - name: ubuntu-14.04
   - name: debian-7.8
+  - name: freebsd-10.1
+    driver:
+      ssh:
+        shell: "'/bin/sh'"
 
 suites:
   - name: default

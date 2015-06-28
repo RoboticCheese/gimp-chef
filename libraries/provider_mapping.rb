@@ -34,3 +34,6 @@ Chef::Platform.set(platform: :ubuntu,
 Chef::Platform.set(platform: :debian,
                    resource: :gimp_app,
                    provider: Chef::Provider::GimpApp::Debian)
+Chef::Platform.set(platform: :freebsd,
+                   resource: :gimp_app,
+                   provider: Chef::Provider::GimpApp::Freebsd)

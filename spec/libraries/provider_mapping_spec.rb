@@ -41,4 +41,12 @@ describe 'gimp::provider_mapping' do
       expect(app_provider).to eq(Chef::Provider::GimpApp::Debian)
     end
   end
+
+  context 'FreeBSD' do
+    let(:platform) { :freebsd }
+
+    it 'uses the FreeBSD app provider' do
+      expect(app_provider).to eq(Chef::Provider::GimpApp::Freebsd)
+    end
+  end
 end
