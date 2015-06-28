@@ -21,4 +21,5 @@ supports         'centos'
 supports         'scientific'
 supports         'amazon'
 supports         'fedora'
+supports         'opensuse'
 # rubocop:enable SingleSpaceBeforeFirstArg

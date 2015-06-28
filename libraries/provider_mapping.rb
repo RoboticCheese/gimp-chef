@@ -42,3 +42,6 @@ Chef::Platform.set(platform: :freebsd,
                      resource: :gimp_app,
                      provider: Chef::Provider::GimpApp::Rhel)
 end
+Chef::Platform.set(platform: :opensuse,
+                   resource: :gimp_app,
+                   provider: Chef::Provider::GimpApp::Opensuse)

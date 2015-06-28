@@ -13,6 +13,7 @@ depends          'dmg', '~> 2.2'
 depends          'windows', '~> 1.37'
 depends          'apt', '~> 2.7'
 depends          'freebsd', '~> 0.3'
+depends          'zypper', '~> 0.1'
 
 supports         'mac_os_x'
 supports         'windows'
@@ -24,4 +25,5 @@ supports         'centos'
 supports         'scientific'
 supports         'amazon'
 supports         'fedora'
+supports         'opensuse'
 # rubocop:enable SingleSpaceBeforeFirstArg

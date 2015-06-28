@@ -15,9 +15,9 @@ A Chef cookbook for installing GIMP.
 Requirements
 ============
 
-This cookbook currently supports OS X, Windows, Debian/Ubuntu, and FreeBSD, and
-the various RHEL variants. It uses the dmg, windows, apt, and freebsd community
-cookbooks, respectively, for these platforms.
+This cookbook currently supports OS X, Windows, Debian/Ubuntu, FreeBSD, the
+assorted RHEL variants, and OpenSUSE. It uses the dmg, windows, apt, freebsd,
+and zypper community cookbooks to enable that platform support.
 
 Usage
 =====
@@ -91,6 +91,10 @@ Provider for FreeBSD platforms.
 ***Chef::Provider::GimpApp::Rhel***
 
 Provider for Red Hat/CentOS/Scientific/Amazon/Fedora platforms.
+
+***Chef::Provider::GimpApp::Opensuse***
+
+Provider for OpenSUSE platforms.
 
 ***Chef::Provider::GimpApp::Package***
 

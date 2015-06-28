@@ -59,4 +59,12 @@ describe 'gimp::provider_mapping' do
       end
     end
   end
+
+  context 'OpenSUSE' do
+    let(:platform) { :opensuse }
+
+    it 'uses the OpenSUSE app provider' do
+      expect(app_provider).to eq(Chef::Provider::GimpApp::Opensuse)
+    end
+  end
 end
