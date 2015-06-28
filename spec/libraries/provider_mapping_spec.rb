@@ -49,4 +49,14 @@ describe 'gimp::provider_mapping' do
       expect(app_provider).to eq(Chef::Provider::GimpApp::Freebsd)
     end
   end
+
+  %w(RedHat CentOS Scientific Amazon Fedora).each do |os|
+    context os do
+      let(:platform) { os.downcase.to_sym }
+
+      it 'uses the RHEL app provider' do
+        expect(app_provider).to eq(Chef::Provider::GimpApp::Rhel)
+      end
+    end
+  end
 end

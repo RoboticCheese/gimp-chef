@@ -37,3 +37,8 @@ Chef::Platform.set(platform: :debian,
 Chef::Platform.set(platform: :freebsd,
                    resource: :gimp_app,
                    provider: Chef::Provider::GimpApp::Freebsd)
+[:redhat, :centos, :scientific, :amazon, :fedora].each do |platform|
+  Chef::Platform.set(platform: platform,
+                     resource: :gimp_app,
+                     provider: Chef::Provider::GimpApp::Rhel)
+end

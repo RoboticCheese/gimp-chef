@@ -15,3 +15,5 @@ platforms:
   #     username: freebsd
   #   transport:
   #     username: freebsd
+  - name: centos-7-0-x64
+  - name: fedora-21-x64
