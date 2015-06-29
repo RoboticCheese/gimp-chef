@@ -1,6 +1,9 @@
 Gimp Cookbook CHANGELOG
 =======================
 
+v?.?.? (????-??-??)
+-------------------
+
 v0.1.0 (2015-06-28)
 -------------------
 - Initial release, w/ support for OS X, Windows, Ubuntu/Debian, FreeBSD,
