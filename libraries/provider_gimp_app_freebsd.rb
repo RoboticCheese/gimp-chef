@@ -32,6 +32,8 @@ class Chef
       class Freebsd < GimpApp::Package
         include Chef::DSL::IncludeRecipe
 
+        provides :gimp_app, platform: 'freebsd'
+
         private
 
         #

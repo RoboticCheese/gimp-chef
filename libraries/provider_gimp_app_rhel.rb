@@ -29,6 +29,7 @@ class Chef
       #
       # @author Jonathan Hartman <j@p4nt5.com>
       class Rhel < GimpApp::Package
+        provides :gimp_app, platform_family: %w(rhel fedora)
       end
     end
   end

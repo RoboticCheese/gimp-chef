@@ -33,6 +33,8 @@ class Chef
 
         include ::Windows::Helper
 
+        provides :gimp_app, platform_family: 'windows'
+
         private
 
         #

@@ -15,6 +15,20 @@ describe Chef::Provider::GimpApp::Windows do
     end
   end
 
+  describe '.provides?' do
+    let(:platform) { nil }
+    let(:node) { ChefSpec::Macros.stub_node('node.example', platform) }
+    let(:res) { described_class.provides?(node, new_resource) }
+
+    context 'Windows' do
+      let(:platform) { { platform: 'windows', version: '2012R2' } }
+
+      it 'returns true' do
+        expect(res).to eq(true)
+      end
+    end
+  end
+
   describe '#install!' do
     before(:each) do
       [:download_package, :install_package].each do |m|

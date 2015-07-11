@@ -8,6 +8,27 @@ describe Chef::Provider::GimpApp::Rhel do
   let(:new_resource) { Chef::Resource::GimpApp.new(name, nil) }
   let(:provider) { described_class.new(new_resource, nil) }
 
+  describe '.provides?' do
+    let(:platform) { nil }
+    let(:node) { ChefSpec::Macros.stub_node('node.example', platform) }
+    let(:res) { described_class.provides?(node, new_resource) }
+
+    {
+      'Amazon' => { platform: 'amazon', version: '2015.03' },
+      'CentOS' => { platform: 'centos', version: '7.0' },
+      'Fedora' => { platform: 'fedora', version: '21' },
+      'Red Hat' => { platform: 'redhat', version: '7.0' }
+    }.each do |k, v|
+      context k do
+        let(:platform) { v }
+
+        it 'returns true' do
+          expect(res).to eq(true)
+        end
+      end
+    end
+  end
+
   describe '#install!' do
     it 'uses a package to install GIMP' do
       p = provider

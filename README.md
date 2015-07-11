@@ -92,9 +92,9 @@ Provider for FreeBSD platforms.
 
 Provider for Red Hat/CentOS/Scientific/Amazon/Fedora platforms.
 
-***Chef::Provider::GimpApp::Opensuse***
+***Chef::Provider::GimpApp::Suse***
 
-Provider for OpenSUSE platforms.
+Provider for SUSE platforms.
 
 ***Chef::Provider::GimpApp::Package***
 
