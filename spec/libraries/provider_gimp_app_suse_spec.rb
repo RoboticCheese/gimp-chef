@@ -14,7 +14,7 @@ describe Chef::Provider::GimpApp::Suse do
     let(:res) { described_class.provides?(node, new_resource) }
 
     {
-      'OpenSUSE' => { platform: 'opensuse', version: '13.2' },
+      'OpenSUSE' => { platform: 'opensuse', version: '13.1' },
       'SUSE' => { platform: 'suse', version: '12.0' }
     }.each do |k, v|
       context k do

@@ -14,7 +14,7 @@ describe Chef::Provider::GimpApp::Debian do
     let(:res) { described_class.provides?(node, new_resource) }
 
     {
-      'Debian' => { platform: 'debian', version: '8.1' },
+      'Debian' => { platform: 'debian', version: '7.6' },
       'Ubuntu' => { platform: 'ubuntu', version: '14.04' }
     }.each do |k, v|
       context k do

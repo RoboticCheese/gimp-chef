@@ -14,7 +14,7 @@ describe Chef::Provider::GimpApp::Rhel do
     let(:res) { described_class.provides?(node, new_resource) }
 
     {
-      'Amazon' => { platform: 'amazon', version: '2015.03' },
+      'Amazon' => { platform: 'amazon', version: '2014.09' },
       'CentOS' => { platform: 'centos', version: '7.0' },
       'Fedora' => { platform: 'fedora', version: '21' },
       'Red Hat' => { platform: 'redhat', version: '7.0' }
