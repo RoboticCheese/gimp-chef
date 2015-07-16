@@ -1,9 +1,9 @@
 # Encoding: UTF-8
 
 require_relative '../spec_helper'
-require_relative '../../libraries/provider_gimp_app_rhel'
+require_relative '../../libraries/provider_gimp_app_suse'
 
-describe Chef::Provider::GimpApp::Rhel do
+describe Chef::Provider::GimpApp::Suse do
   let(:name) { 'default' }
   let(:new_resource) { Chef::Resource::GimpApp.new(name, nil) }
   let(:provider) { described_class.new(new_resource, nil) }
@@ -14,10 +14,8 @@ describe Chef::Provider::GimpApp::Rhel do
     let(:res) { described_class.provides?(node, new_resource) }
 
     {
-      'Amazon' => { platform: 'amazon', version: '2014.09' },
-      'CentOS' => { platform: 'centos', version: '7.0' },
-      'Fedora' => { platform: 'fedora', version: '21' },
-      'Red Hat' => { platform: 'redhat', version: '7.0' }
+      'OpenSUSE' => { platform: 'opensuse', version: '13.1' },
+      'SUSE' => { platform: 'suse', version: '12.0' }
     }.each do |k, v|
       context k do
         let(:platform) { v }
@@ -32,6 +30,7 @@ describe Chef::Provider::GimpApp::Rhel do
   describe '#install!' do
     it 'uses a package to install GIMP' do
       p = provider
+      expect(p).to receive(:include_recipe).with('zypper')
       expect(p).to receive(:package).with('gimp').and_yield
       expect(p).to receive(:version).with(nil)
       expect(p).to receive(:action).with(:install)

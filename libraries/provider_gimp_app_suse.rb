@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: gimp
-# Library:: provider_gimp_app_opensuse
+# Library:: provider_gimp_app_suse
 #
 # Copyright 2015 Jonathan Hartman
 #
@@ -26,11 +26,13 @@ require_relative 'provider_gimp_app_package'
 class Chef
   class Provider
     class GimpApp < Provider::LWRPBase
-      # A GIMP provider for OpenSUSE.
+      # A GIMP provider for SUSE.
       #
       # @author Jonathan Hartman <j@p4nt5.com>
-      class Opensuse < GimpApp::Package
+      class Suse < GimpApp::Package
         include Chef::DSL::IncludeRecipe
+
+        provides :gimp_app, platform_family: 'suse'
 
         #
         # Update Zypper before trying to install the GIMP package.

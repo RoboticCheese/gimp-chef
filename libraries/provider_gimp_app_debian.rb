@@ -32,6 +32,8 @@ class Chef
       class Debian < GimpApp::Package
         include Chef::DSL::IncludeRecipe
 
+        provides :gimp_app, platform_family: 'debian'
+
         private
 
         #

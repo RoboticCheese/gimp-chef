@@ -31,6 +31,8 @@ class Chef
       class MacOsX < GimpApp
         PATH ||= '/Applications/GIMP.app'
 
+        provides :gimp_app, platform_family: 'mac_os_x'
+
         private
 
         #
