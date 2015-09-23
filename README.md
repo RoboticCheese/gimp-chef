@@ -1,12 +1,16 @@
 Gimp Cookbook
 =============
 [![Cookbook Version](https://img.shields.io/cookbook/v/gimp.svg)][cookbook]
-[![Build Status](https://img.shields.io/travis/RoboticCheese/gimp-chef.svg)][travis]
+[![Linux Build Status](https://img.shields.io/circleci/project/RoboticCheese/gimp-chef.svg)][circle]
+[![OS X Build Status](https://img.shields.io/travis/RoboticCheese/gimp-chef.svg)][travis]
+[![Windows Build Status](https://img.shields.io/appveyor/ci/RoboticCheese/gimp-chef.svg)][appveyor]
 [![Code Climate](https://img.shields.io/codeclimate/github/RoboticCheese/gimp-chef.svg)][codeclimate]
 [![Coverage Status](https://img.shields.io/coveralls/RoboticCheese/gimp-chef.svg)][coveralls]
 
 [cookbook]: https://supermarket.chef.io/cookbooks/gimp
+[circle]: https://circleci.com/gh/RoboticCheese/gimp-chef
 [travis]: https://travis-ci.org/RoboticCheese/gimp-chef
+[appveyor]: https://ci.appveyor.com/project/RoboticCheese/gimp-chef
 [codeclimate]: https://codeclimate.com/github/RoboticCheese/gimp-chef
 [coveralls]: https://coveralls.io/r/RoboticCheese/gimp-chef
 
