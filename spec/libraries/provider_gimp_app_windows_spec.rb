@@ -5,8 +5,9 @@ require_relative '../../libraries/provider_gimp_app_windows'
 
 describe Chef::Provider::GimpApp::Windows do
   let(:name) { 'default' }
-  let(:new_resource) { Chef::Resource::GimpApp.new(name, nil) }
-  let(:provider) { described_class.new(new_resource, nil) }
+  let(:run_context) { ChefSpec::SoloRunner.new.converge.run_context }
+  let(:new_resource) { Chef::Resource::GimpApp.new(name, run_context) }
+  let(:provider) { described_class.new(new_resource, run_context) }
 
   describe 'PATH' do
     it 'returns the app directory' do
@@ -117,8 +118,9 @@ describe Chef::Provider::GimpApp::Windows do
     end
 
     it 'returns a path in the Chef cache dir' do
+      res = provider.send(:download_path)
       expected = "#{Chef::Config[:file_cache_path]}/gimp-2.8.14-setup.exe"
-      expect(provider.send(:download_path)).to eq(expected)
+      expect(res).to eq(expected)
     end
   end
 
