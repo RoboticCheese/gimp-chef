@@ -75,8 +75,7 @@ class Chef
         # @return [String] a download URL
         #
         def remote_path
-          minor = version.split('.')[0..1].join('.')
-          "http://download.gimp.org/pub/gimp/v#{minor}/osx/gimp-#{version}.dmg"
+          Gimp::Helpers.latest_package_for(version, 'mac_os_x')
         end
 
         #
@@ -85,7 +84,7 @@ class Chef
         # @return [String] a version string for this provider to use
         #
         def version
-          new_resource.version || Gimp::Helpers.latest_version
+          new_resource.version || Gimp::Helpers.latest_version_for('mac_os_x')
         end
       end
     end

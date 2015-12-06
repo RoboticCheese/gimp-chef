@@ -5,6 +5,8 @@ v?.?.? (????-??-??)
 -------------------
 - Update provider resolution to adhere to the most recent standards set by e.g.
   the [httpd cookbook](https://github.com/chef-cookbooks/httpd).
+- Rewrite OS X/Windows helper methods to account for all versions not always
+  being released simultaneously for all platforms.
 
 v0.1.0 (2015-06-28)
 -------------------

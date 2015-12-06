@@ -26,52 +26,43 @@ module Gimp
   # @author Jonathan Hartman <j@p4nt5.com>
   module Helpers
     #
-    # Sort the list of available GIMP versions and return the newest one.
+    # Return the download URL of the most recent package available for a
+    # specific version and platform (either "mac_os_x" or "windows").
     #
-    # @return [String] the latest GIMP version
+    # @param version [String] a major.minor.patch version
+    # @param platform [String] a platform name
     #
-    def self.latest_version
-      @latest_version ||= begin
-        minor = minor_versions.map { |v| Gem::Version.new(v) }.sort.last.to_s
-        patch_versions(minor).map { |v| Gem::Version.new(v) }.sort.last.to_s
-      end
+    # @return [String] a package download URL
+    #
+    def self.latest_package_for(version, platform)
+      base_url = 'http://download.gimp.org/pub/gimp/' \
+                 "v#{version.split('.')[0..1].join('.')}/" \
+                 "#{platform == 'mac_os_x' ? 'osx' : platform}/"
+      files = Net::HTTP.get(URI(base_url)).lines.map do |l|
+        r = /<a href="(gimp-#{version}.*\.(dmg|exe))">/
+        match = l.match(r)
+        match && match[1]
+      end.compact.sort
+      File.join(base_url, files.last)
     end
 
     #
-    # Return all the patch versions for a given minor version.
+    # Return the most recent stable version for a specific platform whose
+    # packages are distributed via the download site (either "mac_os_x" or
+    # "windows").
     #
-    # @param minor [String] an x.y minor version string
+    # @param platform [String] either "mac_os_x" or "windows"
     #
-    # @return [Array] an array of x.y.z version strings
+    # @return [String] the latest stable GIMP version for that platform
     #
-    def self.patch_versions(minor)
-      @patch_versions ||= {}
-      @patch_versions[minor] ||= begin
-        url = URI("http://download.gimp.org/pub/gimp/v#{minor}/")
-        body = Net::HTTP.get(url)
-        body.lines.map do |l|
-          regex = /<a href="gimp-([0-9]+\.[0-9]+\.[0-9]+)\.tar\.bz2">/
-          match = l.match(regex)
-          match && match[1]
-        end.compact
-      end
-    end
-
-    #
-    # Get and return the list of minor versions (x.y) near the top of the GIMP
-    # download site hierarchy.
-    #
-    # @return [Array] an array if minor version strings
-    #
-    def self.minor_versions
-      # There's no SSL version of the download site
-      @minor_versions ||= begin
-        body = Net::HTTP.get(URI('http://download.gimp.org/pub/gimp/'))
-        body.lines.map do |l|
-          match = l.match(%r{<a href="v([0-9]+\.[0-9]+)/">})
-          match && match[1]
-        end.compact
-      end
+    def self.latest_version_for(platform)
+      platform = 'osx' if platform == 'mac_os_x'
+      uri = URI("http://download.gimp.org/pub/gimp/stable/#{platform}/")
+      versions = Net::HTTP.get(uri).lines.map do |l|
+        match = l.match(/<a href="gimp-([0-9]+\.[0-9]+\.[0-9]+).*">/)
+        match && match[1]
+      end.compact.uniq
+      versions.map { |v| Gem::Version.new(v) }.sort.last.to_s
     end
 
     #
