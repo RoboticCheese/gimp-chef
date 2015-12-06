@@ -19,6 +19,5 @@
 #
 
 gimp_app 'default' do
-  version node['gimp']['version']
-  action :install
+  version node['gimp']['version'] if node['gimp']['version']
 end
