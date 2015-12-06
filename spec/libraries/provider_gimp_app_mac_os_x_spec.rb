@@ -64,20 +64,24 @@ describe Chef::Provider::GimpApp::MacOsX do
   end
 
   describe '#remote_path' do
+    let(:url) { 'http://download.gimp.org/pub/gimp/v1.2/osx/gimp-1.2.3.dmg' }
+
     before(:each) do
       allow_any_instance_of(described_class).to receive(:version)
         .and_return('1.2.3')
+      allow(Gimp::Helpers).to receive(:latest_package_for)
+        .with('1.2.3', 'mac_os_x').and_return(url)
     end
 
     it 'returns a download URL' do
-      expected = 'http://download.gimp.org/pub/gimp/v1.2/osx/gimp-1.2.3.dmg'
-      expect(provider.send(:remote_path)).to eq(expected)
+      expect(provider.send(:remote_path)).to eq(url)
     end
   end
 
   describe '#version' do
     before(:each) do
-      allow(Gimp::Helpers).to receive(:latest_version).and_return('2.3.4')
+      allow(Gimp::Helpers).to receive(:latest_version_for).with('mac_os_x')
+        .and_return('2.3.4')
     end
 
     context 'no resource version override' do
