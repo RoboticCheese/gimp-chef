@@ -19,6 +19,8 @@ A Chef cookbook for installing GIMP.
 Requirements
 ============
 
+As of v1.0.0, this cookbook now requires Chef 12+.
+
 This cookbook currently supports OS X, Windows, Debian/Ubuntu, FreeBSD, the
 assorted RHEL variants, and OpenSUSE. It uses the dmg, windows, apt, freebsd,
 and zypper community cookbooks to enable that platform support.

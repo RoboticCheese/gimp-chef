@@ -1,7 +1,7 @@
 Gimp Cookbook CHANGELOG
 =======================
 
-v?.?.? (????-??-??)
+v1.0.0 (2015-12-07)
 -------------------
 - Update provider resolution to adhere to the most recent standards set by e.g.
   the [httpd cookbook](https://github.com/chef-cookbooks/httpd).
