@@ -29,7 +29,7 @@ class Chef
       #
       # @author Jonathan Hartman <j@p4nt5.com>
       class MacOsX < GimpApp
-        PATH ||= '/Applications/GIMP.app'
+        PATH ||= '/Applications/GIMP.app'.freeze
 
         provides :gimp_app, platform_family: 'mac_os_x'
 

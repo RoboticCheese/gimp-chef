@@ -37,7 +37,7 @@ class Chef
       attribute :installed,
                 kind_of: [NilClass, TrueClass, FalseClass],
                 default: nil
-      alias_method :installed?, :installed
+      alias installed? installed
 
       #
       # Allow a user to install a specific version of GIMP.

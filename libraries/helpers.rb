@@ -73,7 +73,7 @@ module Gimp
     # @return [TrueClass, FalseClass] whether the string is valid
     #
     def self.valid_version?(arg)
-      arg.match(/^[0-9]+\.[0-9]+\.[0-9]+$/) ? true : false
+      arg =~ /^[0-9]+\.[0-9]+\.[0-9]+$/ ? true : false
     end
   end
 end
