@@ -1,6 +1,5 @@
 # Encoding: UTF-8
-#
-# rubocop:disable SingleSpaceBeforeFirstArg
+
 name             'gimp_test'
 maintainer       'Jonathan Hartman'
 maintainer_email 'j@p4nt5.com'
@@ -23,4 +22,3 @@ supports         'amazon'
 supports         'fedora'
 supports         'opensuse'
 supports         'suse'
-# rubocop:enable SingleSpaceBeforeFirstArg
