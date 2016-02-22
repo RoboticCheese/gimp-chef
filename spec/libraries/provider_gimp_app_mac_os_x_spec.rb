@@ -42,7 +42,7 @@ describe Chef::Provider::GimpApp::MacOsX do
       p = provider
       expect(p).to receive(:dmg_package).with('GIMP').and_yield
       expect(p).to receive(:source).with('https://example.com/gimp.dmg')
-      expect(p).to receive(:volumes_dir).with('Gimp 1.2.3')
+      expect(p).to receive(:volumes_dir).with('GIMP 1.2.3')
       expect(p).to receive(:action).with(:install)
       p.send(:install!)
     end
