@@ -47,7 +47,7 @@ class Chef
           v = version
           dmg_package 'GIMP' do
             source s
-            volumes_dir "Gimp #{v}"
+            volumes_dir "GIMP #{v}"
             action :install
           end
         end

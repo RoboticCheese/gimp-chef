@@ -1,8 +1,9 @@
 Gimp Cookbook CHANGELOG
 =======================
 
-v?.?.? (????-??-??)
--------------------
+Unreleased
+----------
+- Fix OS X installation on case-sensitive filesystems
 
 v1.0.0 (2015-12-07)
 -------------------
