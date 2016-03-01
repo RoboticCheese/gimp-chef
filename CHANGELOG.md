@@ -3,6 +3,7 @@ Gimp Cookbook CHANGELOG
 
 Unreleased
 ----------
+- Bump apt dependency from 2.x to 3.x
 
 v1.0.1 (2016-02-22)
 -------------------
