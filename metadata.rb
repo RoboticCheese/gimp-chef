@@ -10,7 +10,7 @@ version          '1.0.2'
 
 depends          'dmg', '~> 2.2'
 depends          'windows', '~> 1.37'
-depends          'apt', '~> 2.7'
+depends          'apt', '~> 3.0'
 depends          'freebsd', '~> 0.3'
 depends          'zypper', '~> 0.1'
 
