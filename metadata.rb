@@ -6,7 +6,7 @@ maintainer_email 'j@p4nt5.com'
 license          'apache2'
 description      'Installs GIMP'
 long_description 'Installs GIMP'
-version          '1.0.2'
+version          '1.1.0'
 
 depends          'dmg', '~> 2.2'
 depends          'windows', '~> 1.37'
